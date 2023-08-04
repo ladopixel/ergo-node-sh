@@ -15,3 +15,4 @@ You can specify as the first argument the name of the directory where the Ergo n
 - Example with argument: ```./start_node.sh <my_directory>```
 
 ## Execute other versions
+Modify the value of the ```url_ergo``` and ```jar_file``` variables for the version you need to run. Remember that the automatic configuration of the ```ergo.conf``` file may not be compatible with all versions.
