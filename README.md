@@ -5,7 +5,7 @@
 
 ## Steps to run the node
 1. Download the .sh file extension
-Define your ```api key``` to configure ```ergo.conf``` using the ```my_key``` variable.
+In the code of this file define your ```api key``` to configure ```ergo.conf``` using the ```my_key``` variable.
 
 2. Add execution permissions from the terminal ```chmod u+x <start_node.sh>```
 
