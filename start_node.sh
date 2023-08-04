@@ -7,13 +7,13 @@
 
 
 # I define my key for the configuration file
-my_key='holaaa'
+my_key="holaaa"
 
 
 # I define some colors for the messages
-texto_verde='\033[32m'
-texto_rojo='\033[31m'
-reset='\033[0m'
+texto_verde="\033[32m"
+texto_rojo="\033[31m"
+reset="\033[0m"
 
 
 # ERGO
@@ -29,7 +29,7 @@ echo
 
 
 # I go to the user's home directory
-cd
+cd || exit
 
 
 # The first parameter ($1) is to indicate the name of the directory where everything will be installed, 
@@ -41,10 +41,10 @@ else
 fi
 
 if [ ! -d "$directory" ]; then
-    mkdir -v $directory > /dev/null
+    mkdir -v "$directory" > /dev/null
     echo -e "${texto_verde}[+] Ergo directory successfully created ${reset}"
 else
-    echo -e "${texto_rojo}[-] The directory already exists, impossible to create another one with the same name ${reset}"
+    echo -e "${texto_rojo}[!] The directory already exists, impossible to create another one with the same name ${reset}"
 fi
 
 
@@ -53,10 +53,10 @@ url_ergo="https://github.com/ergoplatform/ergo/releases/download/v5.0.13"
 jar_file="ergo-5.0.13.jar"
 if [ ! -f "$HOME/$directory/$jar_file" ]; then
     curl -LJO $url_ergo/$jar_file 
-    mv $HOME/$jar_file "$HOME/$directory"
+    mv "$HOME"/$jar_file "$HOME/$directory"
     echo -e "${texto_verde}[+] The node has been successfully downloaded ${reset}"
 else
-    echo -e "${texto_rojo}[-] You already have an available node ${reset}"
+    echo -e "${texto_rojo}[!] You already have an available node ${reset}"
 fi
 
 
@@ -69,17 +69,17 @@ fi
 # I create the initial ergo.conf file.
 if [ ! -f "$HOME/$directory/ergo.conf" ]; then
     ergo_conf="ergo {"
-    echo $ergo_conf > "$HOME/$directory/ergo.conf"
+    echo "$ergo_conf" > "$HOME/$directory/ergo.conf"
     ergo_conf="directory = \${ergo.directory}/$HOME/$directory"
-    echo $ergo_conf >> "$HOME/$directory/ergo.conf"
+    echo "$ergo_conf" >> "$HOME/$directory/ergo.conf"
     ergo_conf="networkType = \"mainnet\""
-    echo $ergo_conf >> "$HOME/$directory/ergo.conf"
+    echo "$ergo_conf" >> "$HOME/$directory/ergo.conf"
     ergo_conf="node.stateType = \"digest\""
-    echo $ergo_conf >> "$HOME/$directory/ergo.conf"
+    echo "$ergo_conf" >> "$HOME/$directory/ergo.conf"
     ergo_conf="node.blocksToKeep = 1440"
-    echo $ergo_conf >> "$HOME/$directory/ergo.conf"
+    echo "$ergo_conf" >> "$HOME/$directory/ergo.conf"
     ergo_conf="node.nipopow.nipopowBootstrap = true"
-    echo $ergo_conf >> "$HOME/$directory/ergo.conf"
+    echo "$ergo_conf" >> "$HOME/$directory/ergo.conf"
     ergo_conf="}"
     echo $ergo_conf >> "$HOME/$directory/ergo.conf"
     echo -e "${texto_verde}[+] Configuration file successfully created ${reset}"
@@ -87,7 +87,7 @@ fi
 
 
 # I run the node for the first time
-cd $HOME/$directory
+cd "$HOME"/"$directory" || exit
 java -jar $jar_file --mainnet -c ergo.conf &
 
 
@@ -118,28 +118,28 @@ echo -e "${texto_verde}[+] Node closed to restart with api_key ${reset}"
 
 # update ergo.conf with api_key
 echo_conf="scorex {"
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 echo_conf="restApi {"
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 echo_conf="apiKeyHash = $api_key"
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 echo_conf="}"
 echo $echo_conf >> "$HOME/$directory/ergo.conf"
 echo_conf="network {"
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 echo_conf="nodeName = \"ergo-at-bash\""
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 echo_conf="agentName = \"ergo-at-bash\""
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 echo_conf="maxConnections = 10"
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 echo_conf="}"
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 echo_conf="}"
-echo $echo_conf >> "$HOME/$directory/ergo.conf"
+echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 
 
 # I start the node with the correctly configured configuration file.
-cd $HOME/$directory
+cd "$HOME"/"$directory" || exit
 echo -e "${texto_verde}[+] Restarting node ${reset}"
 java -jar $jar_file --mainnet -c ergo.conf
