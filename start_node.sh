@@ -140,6 +140,6 @@ echo "$echo_conf" >> "$HOME/$directory/ergo.conf"
 
 
 # I start the node with the correctly configured configuration file.
-cd "$HOME"/"$directory" || exit
+cd "$HOME/$directory" || exit
 echo -e "${texto_verde}[+] Restarting node ${reset}"
 java -jar $jar_file --mainnet -c ergo.conf
