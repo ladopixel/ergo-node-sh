@@ -7,8 +7,21 @@
 
 
 # I define my key for the configuration file
-my_key="holaaa"
+while true; do
+    # Ask the user for input
+    echo -n "Enter your name: "
+    read my_key
 
+    # Check if the input is not blank
+    if [ -n "$my_key" ]; then
+        break  # Exit the loop if input is not blank
+    else
+        echo "API Key name cannot be blank. Please try again."
+    fi
+done
+
+# Display the input
+echo "Hello, $my_key!"
 
 # I define some colors for the messages
 texto_verde="\033[32m"
