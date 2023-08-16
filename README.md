@@ -1,7 +1,10 @@
-# ergo-node-sh
+# Run Ergo node
 ## Start the Ergo node for thin clients easily with this script.
+##### Scripts for Linux, Mac and Windows
 
 <img src="https://ergonfts.org/ergo-node-sh.png" alt="Ergo node image"/>
+
+# Linux and Mac
 
 ## Steps to run the node v1
 1. [Download ```start_node.sh```](https://github.com/ladopixel/ergo-node-sh/blob/main/start_node.sh)
@@ -24,12 +27,11 @@ Version 2 varies only in the way the api_key is entered. With this version it is
 
 ###### The idea of requesting the api_key during execution has been from n1ur0 ######
 
-## Execute other versions
-Modify the value of the ```url_ergo``` and ```jar_file``` variables for the version you need to run. Remember that the automatic configuration of the ```ergo.conf``` file may not be compatible with all versions.
-
-<hr>
+<hr><hr>
 
 # Windows
+## Steps to run the node
+
 Download the two files located in the directory [```start_node_bat```](https://github.com/ladopixel/ergo-node-sh/tree/main/start_node_bat)
 - [Download ```index_node.bat```](https://github.com/ladopixel/ergo-node-sh/blob/main/start_node_bat/index_node.bat)
 - [Download ```ergo_node.bat```](https://github.com/ladopixel/ergo-node-sh/blob/main/start_node_bat/ergo_node.bat)
@@ -45,3 +47,8 @@ Open cmd console and type the following: ```index_node``` and press enter.
 
 ### Security
 Remember to put in a safe place the generated file ```your_api_key.txt``` with your api_key in the ```ergo_node``` folder.
+
+<hr><hr>
+
+## Execute other versions Ergo node
+Modify the value of the ```url_ergo``` and ```jar_file``` variables for the version you need to run. Remember that the automatic configuration of the ```ergo.conf``` file may not be compatible with all versions.
