@@ -28,6 +28,13 @@ echo "███████ ErgoPlatform.org"
 echo
 
 
+# I verify that a Java version exists in my computer, if it does not exist I show a message and exit.
+if ! type -p java > /dev/null; then
+    echo -e "${texto_rojo} [-] Java is not installed on your system, you need to install it. ${reset}"
+    exit 1
+fi
+
+
 # I go to the user's home directory
 cd || exit
 
@@ -57,12 +64,6 @@ if [ ! -f "$HOME/$directory/$jar_file" ]; then
     echo -e "${texto_verde}[+] The node has been successfully downloaded ${reset}"
 else
     echo -e "${texto_rojo}[!] You already have an available node ${reset}"
-fi
-
-
-# I verify that a Java version exists in my computer, if it does not exist I show a message.
-if ! type -p java > /dev/null; then
-    echo -e "${texto_rojo} [-] Java is not installed on your system, you need to install it. ${reset}"
 fi
 
 

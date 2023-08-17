@@ -8,6 +8,14 @@ REM └────────────────────────�
 title Welcome Ergo node
 
 
+:: I verify that a Java version exists in my computer, if it does not exist I show a message and exit.
+java -version 2>nul
+if errorlevel 1 (
+    echo "[-] Java is not installed on your system, you need to install it."
+    exit /B 1
+)
+
+
 start ergo_node.bat
 
 

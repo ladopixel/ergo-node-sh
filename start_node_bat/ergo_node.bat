@@ -47,13 +47,6 @@ if not exist "%USERPROFILE%/%directory%/%jar_file%" (
 )
 
 
-:: I verify that a Java version exists in my computer, if it does not exist I show a message.
-java -version 2>nul
-if errorlevel 1 (
-    echo "[-] Java is not installed on your system, you need to install it."
-)
-
-
 :: I create the initial ergo.conf file
 if not exist "%USERPROFILE%/%directory%/ergo.conf" (
     set "profile_new=%USERPROFILE:\=/%"
