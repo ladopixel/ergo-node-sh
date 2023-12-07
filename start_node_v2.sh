@@ -18,13 +18,13 @@ reset="\033[0m"
 
 # ERGO
 echo
-echo "███████"
-echo "█"
+echo " ███████"
 echo " █"
 echo "  █"
+echo "   █"
+echo "  █"
 echo " █"
-echo "█"
-echo "███████ ErgoPlatform.org"
+echo " ███████ ErgoPlatform.org"
 echo
 
 

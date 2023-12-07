@@ -9,15 +9,15 @@ title Closes_by_itself_in_20_seconds
 
 
 :: ERGO
-echo *******
-echo *******
-echo **
+echo  *******
+echo  *******
 echo  **
 echo   **
+echo    **
+echo   **
 echo  **
-echo **
-echo *******
-echo ******* ErgoPlatform.org
+echo  *******
+echo  ******* ErgoPlatform.org
 
 
 cd %USERPROFILE%
