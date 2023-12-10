@@ -1,8 +1,5 @@
 REM Running ERGO node from Flipper Bad USB
 
-DELAY 1000
-CTRL ALT t
-
 DELAY 2000
 STRING git clone https://github.com/ladopixel/ergo-node-sh
 DELAY 1000
