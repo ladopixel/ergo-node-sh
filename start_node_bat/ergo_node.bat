@@ -2,7 +2,7 @@
 
 REM ┌───────────────────────────┐
 REM │ Developed by ladopixel    │
-REM │ Execute Ergo node v5.0.13 │
+REM │ Execute Ergo node latest release │
 REM └───────────────────────────┘
 
 title Closes_by_itself_in_20_seconds
@@ -33,10 +33,30 @@ if not exist "%USERPROFILE%/%directory%" (
     echo "[!]The directory already exists, impossible to create another one with the same name"
 )
 
+:: Get latest release version number
+setlocal enabledelayedexpansion
+set "location="
+set "version="
+
+for /f "tokens=*" %%a in ('curl -I https://github.com/ergoplatform/ergo/releases/latest') do (
+    set "line=%%a"
+    if "!line:~0,9!"=="Location:" (
+        set "location=!line:~10!"
+    )
+)
+
+:vloop
+for /f "tokens=1,* delims=/" %%a in ("%location%") do (
+    set "version=%%a"
+    set "location=%%b"
+)
+
+if not "%location%"=="" goto vloop
 
 :: I download the node version
-set url_ergo="https://github.com/ergoplatform/ergo/releases/download/v5.0.13"
-set jar_file="ergo-5.0.13.jar"
+:: use version from previous step
+set url_ergo=https://github.com/ergoplatform/ergo/releases/download/%version%
+set jar_file=ergo-%version:~1%.jar
 
 if not exist "%USERPROFILE%/%directory%/%jar_file%" (
     curl -LJO "%url_ergo%/%jar_file%" 

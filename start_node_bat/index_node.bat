@@ -2,7 +2,7 @@
 
 REM ┌───────────────────────────┐
 REM │ Developed by ladopixel    │
-REM │ Execute Ergo node v5.0.13 │
+REM │ Execute Ergo node latest release │
 REM └───────────────────────────┘
 
 title Welcome Ergo node
